@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import FilingForm from "./components/FilingForm";
+import FilingList from "./components/FilingList";
+import "./App.css";
 
 function App() {
+  const [refreshList, setRefreshList] = useState(false);
+
+  const handleSubmissionSuccess = () => {
+    setRefreshList((prev) => !prev);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Customs Filing System</h1>
+      <div className="container">
+        <div className="form-section">
+          <FilingForm onSuccess={handleSubmissionSuccess} />
+        </div>
+        <div className="list-section">
+          <FilingList key={refreshList} />
+        </div>
+      </div>
     </div>
   );
 }
