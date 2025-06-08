@@ -12,7 +12,8 @@ app.use(cors());
 
 // Database connection
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost:27017/customs_filings",
+  process.env.MONGODB_URI ||
+    "mongodb+srv://priyanshu61iitj:ILdvydpdEY777K74@cluster0.h5rlkig.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
